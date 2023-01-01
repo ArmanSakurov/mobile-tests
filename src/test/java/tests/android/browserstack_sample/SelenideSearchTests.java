@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import tests.TestBase;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 public class SelenideSearchTests extends TestBase {
@@ -14,5 +15,9 @@ public class SelenideSearchTests extends TestBase {
         $(AppiumBy.accessibilityId("Search Wikipedia")).click();
         $(AppiumBy.id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Java");
         $$(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_title")).shouldHave(sizeGreaterThan(0));
+
+        $(AppiumBy.id("org.wikipedia.alpha:id/page_list_item_title")).click();
+        $(AppiumBy.className("android.view.View")).click();
+        $(AppiumBy.className("android.widget.TextView")).shouldHave(text("Java"));
     }
 }
