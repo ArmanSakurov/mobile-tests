@@ -21,7 +21,6 @@ public class TestBase {
     @BeforeEach
     void startDriver() {
         addListener("AllureSelenide", new AllureSelenide());
-
         open();
     }
 
