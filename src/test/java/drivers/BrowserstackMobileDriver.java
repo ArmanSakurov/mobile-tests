@@ -31,22 +31,26 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
         mutableCapabilities.merge(capabilities);
 
         // Set your access credentials
-//        mutableCapabilities.setCapability("browserstack.user", "bsuser_0bae97");
-//        mutableCapabilities.setCapability("browserstack.key", "89Baz9pmNscurTVCUVWk");
         mutableCapabilities.setCapability("browserstack.user", config.user());
         mutableCapabilities.setCapability("browserstack.key", config.key());
 
         // Set URL of the application under test
-        mutableCapabilities.setCapability("app", "bs://c700ce60cf13ae8ed97705a55b8e022f13c5827c");
+//        mutableCapabilities.setCapability("app", "bs://c700ce60cf13ae8ed97705a55b8e022f13c5827c");
+        mutableCapabilities.setCapability("app", config.app());
 
         // Specify device and os_version for testing
-        mutableCapabilities.setCapability("device", "Google Pixel 3");
-        mutableCapabilities.setCapability("os_version", "9.0");
+//        mutableCapabilities.setCapability("device", "Google Pixel 3");
+//        mutableCapabilities.setCapability("os_version", "9.0");
+        mutableCapabilities.setCapability("device", config.device());
+        mutableCapabilities.setCapability("os_version", config.osVersion());
 
         // Set other BrowserStack capabilities
-        mutableCapabilities.setCapability("project", "First Java Project");
-        mutableCapabilities.setCapability("build", "browserstack-build-2");
-        mutableCapabilities.setCapability("name", "first_test");
+//        mutableCapabilities.setCapability("project", "First Java Project");
+//        mutableCapabilities.setCapability("build", "browserstack-build-2");
+//        mutableCapabilities.setCapability("name", "first_test");
+        mutableCapabilities.setCapability("project", config.project());
+        mutableCapabilities.setCapability("build", config.build());
+        mutableCapabilities.setCapability("name", config.name());
 
         // Initialise the remote Webdriver using BrowserStack remote URL
         // and desired capabilities defined above
